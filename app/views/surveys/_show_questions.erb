@@ -1,0 +1,9 @@
+<div class="survey">
+  <% @questions.each do |question_object| %>
+    <h4><%= question_object.question %></h4>
+    <% question_object.answers.each do |answer_object| %>
+      <input class="answer-button" type="radio" name="answer" values="<%= answer_object.answer %>"><%= answer_object.answer %></p>
+    <% end %>
+  <% end %>
+  <button class="submit"><a href="/surveys">Submit</a></button>
+</div>

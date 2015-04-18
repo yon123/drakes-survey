@@ -1,0 +1,13 @@
+<div>
+  <h4>Enter choices for question: <%= question.question %></h4>
+  <form action="/answers" method="post" class="signup-form">
+    <label>Choices</label>
+    <input type="text" name="answer1" placeholder="Enter choice 1" required>
+    <input type="text" name="answer2" placeholder="Enter choice 2" required>
+    <input type="text" name="answer3" placeholder="Enter choice 3" >
+    <input type="text" name="answer4" placeholder="Enter choice 4" >
+    <input type="text" name="answer5" placeholder="Enter choice 5" >
+    <input type="hidden" name="question_id" value="<%= question.id %>">
+    <input type="submit" value="Add choices" class="submit">
+  </form>
+</div>

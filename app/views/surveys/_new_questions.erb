@@ -1,0 +1,11 @@
+<div>
+  <h4>Enter a question for survey: <%= survey.title %></h4>
+  <form action="/questions" method="post" class="signup-form">
+    <label>Question</label>
+    <input type="text" name="question" placeholder="Enter survey question" required>
+    <input type="hidden" name="survey_id" value="<%= survey.id %>">
+    <input type="submit" value="Add question" class="submit">
+  </form>
+  <h4>Finished with creating survey?</h4>
+  <a href="/surveys">Yes, I'm done!</a>
+</div>

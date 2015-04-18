@@ -1,0 +1,19 @@
+<h1> Login </h1>
+
+<% if @failed_login %>
+<h3>Bad email or password</h3>
+<% end %>
+<form action="/login" method="post">
+  <div>
+    <label>
+      Email: <input type="text" name="email"><br>
+    </label>
+
+  </div>
+  <div>
+    <label>
+      Password: <input type="text" name="password"><br>
+    </label>
+  </div>
+  <input type="submit" value="Submit">
+</form>

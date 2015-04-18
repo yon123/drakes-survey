@@ -1,0 +1,34 @@
+<% if @questions %>
+  <%= erb :'/surveys/_show_questions', locals: {questions: @questions}%>
+<% elsif @user %>
+  <%= erb :'/surveys/_new' %>
+<% elsif @survey %>
+  <%= erb :'/surveys/_new_questions', locals: {survey: @survey}%>
+<% elsif @question %>
+  <%= erb :'/surveys/_new_answers', locals: {question: @question}%>
+<% elsif @answer %>
+  <%= erb :'/surveys/_new_answers', locals: {question: @question}%>
+<% else %>
+
+<% if @my_surveys %>
+  <div>
+    <h3>My surveys:</h3>
+    <% @my_surveys.each do |survey| %>
+    <p> <a href="/surveys/<%= survey.id %>"> <%= survey.title %></a></p>
+    <% end %>
+    <button name="new_survey"><a href="/surveys/new">Create new survey</a></button>
+  </div>
+<% end %>
+
+  <div>
+    <h3>All surveys:</h3>
+    <% @surveys.each do |survey| %>
+      <a href="/surveys/<%= survey.id %>"><h3><%= survey.title %></h3></a>
+    <form action="/responses" method="post">
+      <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
+      <input type="hidden" name="survey_id" value="<%= survey.id %>">
+      <input type="submit" value="Post your answers">
+    </form>
+    <% end %>
+  </div>
+<% end %>
